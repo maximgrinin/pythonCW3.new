@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  insta:
+    build:
+      context: .
+    image: maximgrinin/my_instagramm_app
+    ports:
+      - 5050:5000
+    volumes:
+      - /home/maximgrinin/pythonCW3/uploads:/code/uploads_host
