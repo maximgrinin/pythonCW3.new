@@ -27,7 +27,7 @@ def get_posts_index_api():
 @api_blueprint.route("/posts")
 def api_posts_all():
     # Логируем обращение к АПИ
-    api_logger.info(f"Запрос /api/posts")
+    api_logger.info("Запрос /api/posts")
 
     # Получаем полный список постов и возвращаем его
     posts_list: list[Post] = post_dao.get_all()
@@ -55,7 +55,7 @@ def api_post_by_pk(pk):
 @api_blueprint.route("/comments")
 def api_comments_all():
     # Логируем обращение к АПИ
-    api_logger.info(f"Запрос /api/comments")
+    api_logger.info("Запрос /api/comments")
 
     # Получаем полный список комментариев и возвращаем его
     comments_list: list[Comment] = comment_dao.get_all()

@@ -72,7 +72,7 @@ class TestPostDAO:
         """ Проверяем набор возвращаемых pk при поиске """
         posts = post_dao.search_for_posts(query)
         pks = set([post.pk for post in posts])
-        assert pks == expected_pks, f"При поиске постов неверный набор pk"
+        assert pks == expected_pks, "При поиске постов неверный набор pk"
 
     def test_get_by_user(self, post_dao):
         """ Проверяем получение постов по пользователю """
@@ -91,4 +91,4 @@ class TestPostDAO:
         """ Проверяем набор возвращаемых pk при запросе по пользователю """
         posts = post_dao.get_by_user(poster_name)
         pks = set([post.pk for post in posts])
-        assert pks == expected_pks, f"Неверный набор pk при поиске по пользователю"
+        assert pks == expected_pks, "Неверный набор pk при поиске по пользователю"

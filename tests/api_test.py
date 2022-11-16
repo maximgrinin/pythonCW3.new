@@ -35,14 +35,14 @@ class TestApi:
         response = test_client.get(f'/api/posts/{pk}', follow_redirects=True)
         post = response.get_json()
         post_keys = set(post.keys())
-        assert post_keys == self.post_keys_should_be , "При запросе одного поста неверный набор полей"
+        assert post_keys == self.post_keys_should_be, "При запросе одного поста неверный набор полей"
 
     def test_api_all_posts_keys(self, test_client):
         """ Проверяем, верный ли набор полей при обращении к списку постов """
         response = test_client.get('/api/posts', follow_redirects=True)
         posts_list = response.get_json()
         for post in posts_list:
-            assert post.keys() == self.post_keys_should_be , "При запросе списка постов неверный набор полей"
+            assert post.keys() == self.post_keys_should_be, "При запросе списка постов неверный набор полей"
 
     def test_meow(self, cat):
         assert cat == "meow"

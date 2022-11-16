@@ -8,6 +8,7 @@ def test_client():
     app = run.app
     return app.test_client()
 
+
 @pytest.fixture()
 def cat():
     return "meow"

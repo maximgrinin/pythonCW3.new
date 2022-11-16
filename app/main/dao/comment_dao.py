@@ -20,7 +20,7 @@ class CommentDAO:
             raise DataSourceError(f"Не удается получить данные из файла: {e}")
         except JSONDecodeError:
             # Будет выполнено, если файл найден, но не превращается из JSON
-            raise DataSourceError(f"Не удается разобрать полученные из файла данные")
+            raise DataSourceError("Не удается разобрать полученные из файла данные")
 
         return json
 

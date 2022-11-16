@@ -10,7 +10,6 @@ app.register_blueprint(main_blueprint)
 app.register_blueprint(api_blueprint, url_prefix="/api")
 
 app.config['JSON_AS_ASCII'] = False
-#app.json.ensure_ascii = False
 
 logger_configure()
 
