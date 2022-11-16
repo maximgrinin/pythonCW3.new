@@ -2,6 +2,7 @@ name: build and deploy workflow
 on: [push]
 jobs:
   build_and_test:
+    runs-on: ubuntu-latest
     steps:
       - name: clone code
         uses: actions/checkout@v3
