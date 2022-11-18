@@ -6,14 +6,14 @@ from app.main.dao.comment_dao import CommentDAO
 from config import POST_PATH, COMMENT_PATH
 import logging
 
-# Создаем блупринт
+# Создаём блупринт
 api_blueprint = Blueprint('api_blueprint', __name__)
 
-# Создаем DAO постов и комментариев
+# Создаём DAO постов и комментариев
 post_dao = PostDAO(POST_PATH)
 comment_dao = CommentDAO(COMMENT_PATH)
 
-# Создаем логгер
+# Создаём логгер
 api_logger = logging.getLogger("api_logger")
 
 
@@ -42,7 +42,7 @@ def api_post_by_pk(pk):
     # Логируем обращение к АПИ
     api_logger.info(f"Запрос /api/posts/{pk}")
 
-    # Получаем пост по его pk, если нет - возвращаем ошибку
+    # Получаем пост по его pk, если нет — возвращаем ошибку
     post: Post | None = post_dao.get_by_pk(pk)
     if post is None:
         api_logger.warning(f"Запрос к несуществующему посту /api/posts/{pk}")

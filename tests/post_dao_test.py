@@ -4,7 +4,7 @@ import pytest
 
 
 def check_fields(post):
-    # Задаем, какие ключи ожидаем получать у постов
+    # Задаём, какие ключи ожидаем получать у постов
     keys_should_be = {"poster_name", "poster_avatar", "pic", "content", "views_count", "likes_count", "pk"}
     for key in keys_should_be:
         assert hasattr(post, key), f"Нет поля {key}"
@@ -12,8 +12,8 @@ def check_fields(post):
 
 # Класс тестирования функций получения данных для поста
 class TestPostDAO:
-    # Нам пригодится экземпляр DAO, так что мы создадим его в фикстуре
-    # Но пригодится только один раз, поэтому выносить в conftest не будем
+    # Нам пригодится экземпляр DAO, так что мы создадим его в фикстуре.
+    # Но пригодится только один раз, поэтому выносить в conftest не будем.
     @pytest.fixture()
     def post_dao(self):
         post_dao_instance = PostDAO("data/data.json")
@@ -34,7 +34,7 @@ class TestPostDAO:
         check_fields(post)
 
     def test_get_all_correct_ids(self, post_dao):
-        """ Проверяем все ли pk постов на месте при получении всех постов """
+        """ Проверяем всё ли pk постов на месте при получении всех постов """
         posts = post_dao.get_all()
         correct_ids = {1, 2, 3, 4, 5, 6, 7, 8}
         ids = set([post.pk for post in posts])

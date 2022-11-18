@@ -11,13 +11,13 @@ def logger_configure():
     # Создаем регистратор с именем 'api_logger'
     api_logger = logging.getLogger("api_logger")
     api_logger.setLevel(logging.DEBUG)
-    # Создаем файловый обработчик, который регистрирует отладочные сообщения
+    # Создаём файловый обработчик, который регистрирует отладочные сообщения
     file_handler = logging.FileHandler(LOG_PATH)
     file_handler.setLevel(logging.DEBUG)
-    # Создаем консольный обработчик с более высоким уровнем журнала
+    # Создаём консольный обработчик с более высоким уровнем журнала
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.ERROR)
-    # Создаем форматтер и добавляем его в обработчики
+    # Создаём форматтер и добавляем его в обработчики
     formatter = logging.Formatter(LOGGER_FORMAT, LOGGER_FORMAT_DATE)
     file_handler.setFormatter(formatter)
     console_handler.setFormatter(formatter)
