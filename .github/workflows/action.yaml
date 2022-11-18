@@ -1,7 +1,7 @@
 name: build and deploy workflow
 on: [push]
 jobs:
-  build_and_test:
+  linting_and_test:
     runs-on: ubuntu-latest
     steps:
       - name: clone code
@@ -23,7 +23,7 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
   build_and_push:
     runs-on: ubuntu-latest
-    needs: build_and_test
+    needs: linting_and_test
     steps:
       - name: clone code
         uses: actions/checkout@v3
